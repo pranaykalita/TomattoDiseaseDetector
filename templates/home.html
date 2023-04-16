@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+{% load static %}
+    <div class="row mt-5">
+        <div class="col-md-12 text-center">
+            <div id="headline">Tomato Leaf Disease Detection</div>
+            <span id="tag">An Ai tool to Detect the leaf disease by Image</span>
+        </div>
+    </div>
+    <div class="row mt-5">
+        {%if Diseases%}
+        <div class="col-md-12 p-2 px-5 text-center">
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                    <div class="col-md-6">
+                        <img src="/media/uploaded/{{img_name}}"  width="250" height="250" alt="image_uploaded">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body d-flex flex-column justify-content-between h-100">
+                            <div class="p-3">
+                                <h5 class="card-title">Results:</h5>
+                                <p class="card-text py-2">Prediction: <span class="badge bg-primary">{{Diseases}}</span></p>
+                                <p class="card-text py-2">Confidence rate: <span class="badge bg-success">{{confidence}}%</span></p>
+                               
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endif%}
+        <div class="col-md-6 p-2">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <form method="post" action="" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="imageUpload">Upload image for detection</label>
+                            <br>
+                            <span>image*</span>
+                            <input type="file" class="form-control" id="imageUpload" name="predictimage" accept="image/*">
+                        </div>
+                        <button type="submit" class="btn btn-success mt-2">Predict</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 p-2">
+            <div class="card  shadow-lg">
+                <div class="card-body text-center">
+                    <img id="imagePreview" class="img-fluid" src="{% static 'home.jpg'%}" width="255" height="255" alt="Select Image to predict">
+                    
+                    <br>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

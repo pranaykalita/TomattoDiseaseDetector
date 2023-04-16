@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+
+body{
+    background-color: #319f41 !important;
+    font-family: 'Poppins', sans-serif;
+    
+}
+#headline{
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;   
+    color: white;
+}
+#tag{
+    font-weight: 300;
+    font-family: 'Poppins', sans-serif;   
+    color: whitesmoke;
+}
+
+#resultimg{
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+}
+
+.badge{
+    font-size: 0.95em !important;
+}

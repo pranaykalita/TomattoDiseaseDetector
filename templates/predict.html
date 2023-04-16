@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    predict
+{% endblock %}
+
+{% block content %}
+{% load static %}
+    <div class="row mt-5">
+        <div class="col-md-12 text-center">
+            <div id="headline">Tomato Leaf Disease Detection</div>
+            <span id="tag">An Ai tool to Detect the leaf disease by Image</span>
+        </div>
+    </div>
+    <div class="row mt-5 text-center justify-content-center">
+        {%if Diseases%}
+        <div class="col-md-8 p-2 px-5">
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                    <div class="col-md-6 float-end p-5">
+                        <img src="/media/uploaded/{{img_name}}"  width="250" height="250" alt="image_uploaded">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body d-flex flex-column justify-content-between text-center h-100">
+                            <div class="pt-5 ">
+                                <h4 class="card-title">Results:</h4>
+                                <div class="row">
+                                    <div class="col text-end">
+                                        <h6 class="card-text pt-2">Prediction:</h6>
+                                        <h6 class="card-text pb-2">Confidence rate:</h6>
+                                    </div>
+                                    <div class="col text-start">
+                                        <h1 class="badge bg-danger">{{Diseases}}</h1><br>
+                                        <h1 class="badge bg-success">{{confidence}}%</h1>
+                                    </div>
+                                </div>
+                                <a href="{% url 'home' %}" class="btn btn-primary mt-4">Predict Another</a>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endif%}
+        
+    </div>
+
+{% endblock %}
