@@ -6,8 +6,7 @@ from tensorflow.keras.preprocessing import image
 label =  ['Bacterial spot', 'Early blight', 'Late blight', 'Leaf Mold', 'Septoria leaf spot', 'Twospottedspider mite', 'Target Spot', 'Yellow Leaf Curl Virus', 'mosaic virus', 'healthy']
 
 
-# model_path = "media/model/litemodel.tflite"
-model_path=
+model_path = "media/model/litemodel.tflite"
 img_size = 255
 
 interpreter = tf.lite.Interpreter(model_path=model_path)
